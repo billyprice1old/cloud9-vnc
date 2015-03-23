@@ -3,6 +3,8 @@ VNC
 
 Running X11 in a Cloud9 workspace.
 
+![Screen Shot](screenshot.png)
+
 Installation
 ------------
 
