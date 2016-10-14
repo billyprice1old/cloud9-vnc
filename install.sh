@@ -6,6 +6,7 @@ if [[ $UID != 0 ]]; then
     exit 1
 fi
 
+
 sudo apt-get install supervisor xvfb fluxbox x11vnc
 
 cp supervisord.conf ${HOME}/.config/supervisord.conf
