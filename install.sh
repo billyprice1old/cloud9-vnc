@@ -6,7 +6,15 @@ if [[ $UID != 0 ]]; then
     exit 1
 fi
 
-cd ~/
-
 sudo apt-get install supervisor xvfb fluxbox x11vnc
-git clone git://github.com/kanaka/noVNC
+
+cp supervisord.conf ${HOME}/.config/supervisord.conf
+
+sudo mkdir /opt/c9vnc
+mkdir ${HOME}/workspace/.c9/runners
+
+cp c9vnc.run ${HOME}/workspace/.c9/runners/c9vnc.run
+cp run.sh /opt/c9vnc/run.sh
+
+git clone git://github.com/kanaka/noVNC /opt/noVNC/
+
