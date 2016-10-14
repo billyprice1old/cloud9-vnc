@@ -8,7 +8,7 @@ Running X11 in a Cloud9 workspace.
 Installation
 ------------
 
-    ./install.sh
+    sudo ./install.sh
 
 Running
 -------
