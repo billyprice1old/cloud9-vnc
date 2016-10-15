@@ -23,7 +23,22 @@ mkdir ${HOME}/workspace/.c9/runners
 cp c9vnc.run ${HOME}/workspace/.c9/runners/c9vnc.run
 
 #Copy the run script to proper /opt/ directory
-cp run.sh /opt/c9vnc/run.sh
+sudo cp run.sh /opt/c9vnc/c9vnc.sh
+
+#Support password for x11vnc
+sudo cp x11vncrun.sh /opt/c9vnc/x11vncrun.sh
 
 #Clone noVNC into proper /opt/ directory
 git clone git://github.com/kanaka/noVNC /opt/noVNC/
+
+#Set up password for x11vnc
+echo
+echo
+while true; do
+    read -p "Do you wish to set password for x11vnc? (not recommended for public workspaces!) " yn
+    case $yn in
+        [Yy]* ) x11vnc -storepasswd; break;;
+        [Nn]* ) exit;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done
