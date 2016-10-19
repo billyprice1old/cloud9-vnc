@@ -41,7 +41,7 @@ while true; do
     read -p "Do you wish to set password for x11vnc? (not recommended for public workspaces!) " yn
     case $yn in
 #        [Yy]* ) x11vnc -storepasswd; break;; Coming later
-        [Yy]* ) echo Coming later; break;
+        [Yy]* ) (echo Coming later); break;;
         [Nn]* ) exit;;
         * ) echo "Please answer yes or no.";;
     esac
