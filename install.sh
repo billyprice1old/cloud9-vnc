@@ -8,7 +8,7 @@ if [[ $UID != 0 ]]; then
 fi
 
 #Get prerequisites
-sudo apt-get install supervisor xvfb fluxbox x11vnc
+sudo apt-get install supervisor xvfb fluxbox x11vnc websockify
 
 #Copy supervisord configuration to proper configuration directory
 cp supervisord.conf ${HOME}/.config/supervisord.conf
