@@ -26,7 +26,7 @@ cp c9vnc.run ${HOME}/workspace/.c9/runners/c9vnc.run
 sudo cp run.sh /opt/c9vnc/c9vnc.sh
 
 #Copy the run script to proper /opt/ directory
-sudo cp remove.sh /opt/c9vnc/remove.sh
+sudo cp uninstall.sh /opt/c9vnc/uninstall.sh
 
 #Support password for x11vnc
 sudo cp x11vncrun.sh /opt/c9vnc/x11vncrun.sh
@@ -40,7 +40,8 @@ echo
 while true; do
     read -p "Do you wish to set password for x11vnc? (not recommended for public workspaces!) " yn
     case $yn in
-        [Yy]* ) x11vnc -storepasswd; break;;
+#        [Yy]* ) x11vnc -storepasswd; break;; Coming later
+        [Yy]* ) echo Coming later; break;
         [Nn]* ) exit;;
         * ) echo "Please answer yes or no.";;
     esac
