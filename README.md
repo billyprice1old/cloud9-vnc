@@ -8,11 +8,38 @@ Running X11 in a Cloud9 workspace.
 Installation
 ------------
 
-    ./install.sh
+Clone the repository to where you'd like (in the example I use the home folder ~)
+    
+    cd ~
+    git clone https://github.com/acabey/cloud9-vnc.git
+
+
+Enter the repository sub-directory
+
+    cd cloud9-vnc/
+
+Run the install script with privileges
+
+    sudo ./install.sh
+    
+If you would like to export a "permanent alias" to run the script, run
+
+    echo alias c9vnc=/opt/c9vnc/c9vnc.sh >> ~/.bash_aliases
+    
 
 Running
 -------
 
-    ./run.sh
+Use the custom C9 runner
+
+    Run > Run With > C9vnc
     
-or use the `X11` runner.
+Or run the script directly from the /opt/ directory
+
+    /opt/c9vnc/c9vnc.sh
+    
+You can also export an alias to this script and run with the alias
+
+    alias c9vnc=/opt/c9vnc/c9vnc.sh
+    
+    c9vnc

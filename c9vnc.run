@@ -1,0 +1,5 @@
+{
+  "cmd": [ "/opt/c9vnc/c9vnc.sh" ],
+  "working_dir": "$project_path",
+  "info": "Your GUI is running at \\033[01;34m$url/vnc.html\\033[00m.\n\\033[01;31m"
+}
