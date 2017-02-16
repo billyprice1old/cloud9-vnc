@@ -8,6 +8,7 @@ Running X11 in a Cloud9 workspace.
 Installation
 ------------
 
+
 Clone the repository to where you'd like (in the example I use the home folder ~)
     
     cd ~
@@ -17,6 +18,10 @@ Clone the repository to where you'd like (in the example I use the home folder ~
 Enter the repository sub-directory
 
     cd cloud9-vnc/
+
+Now make sure apt-get has been updated with 
+
+    sudo apt-get update
 
 Run the install script with privileges
 
