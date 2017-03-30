@@ -41,6 +41,9 @@ function daemonStop {
     supervisorctl stop fluxbox
     supervisorctl stop x11vnc
     supervisorctl stop xvfb
+    
+    #If that fails, killall
+    killall Xvfb x11vnc websockify supervisord
 }
 
 # No arguments, default to starting the daemon

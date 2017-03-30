@@ -10,40 +10,42 @@ Installation
 
 Clone the repository to where you'd like (in the example I use the home folder ~)
     
-    `
+    
     cd ~
     git clone https://github.com/acabey/cloud9-vnc.git
-    `
+    
 
 Enter the repository sub-directory
 
-    `cd cloud9-vnc/`
+    cd cloud9-vnc/
 
 Run the install script with privileges
 
-    `sudo ./install.sh`
+    sudo ./install.sh
     
 Clean up installation directory
     
-    `rm -rf ./`
+    rm -rf ./
 
 Uninstallation
 --------------
 
 Run the uninstallation script with privileges
 
-    `sudo /opt/c9vnc/uninstall.sh`
+    bash
+        sudo /opt/c9vnc/uninstall.sh
+    
 
 Running
 -------
 
 Use the custom C9 runner
 
-    `Run > Run With > C9vnc`
+    Run > Run With > C9vnc
     
 Run the start script symlinked into your /usr/local/bin
     
-    `
+    
     c9vnc
     
     Usage: c9vnc <args>
@@ -51,4 +53,4 @@ Run the start script symlinked into your /usr/local/bin
        -f          Run in the foreground
        -k          Kill running daemon
     No arguments will try to start daemon process
-    `
+    
