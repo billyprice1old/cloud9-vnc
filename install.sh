@@ -35,16 +35,14 @@ sudo cp uninstall.sh /opt/c9vnc/uninstall.sh
 #Sets password from ~/.vnc/passwd
 #When running x11vnc, do x11vnc -usepw
 echo
-echo
 while true; do
     read -p "Do you wish to set password for x11vnc? (not recommended for public workspaces!) " yn
     case $yn in
-        [Yy]* ) stty -echo; printf "Enter a password: "; read PASSWORD; stty echo; printf "\n"; mkdir -p ~/.vnc/ ; echo "$PASSWORD"|tr -d '\n' > ~/.vnc/passwd ; sed -i -e 's/x11vnc/x11vnc -usepw/g' ${HOME}/.config/supervisord.conf ; break;;
+        [Yy]* ) sudo x11vnc -storepasswd ; sed -i -e 's/command=x11vnc/command=x11vnc -usepw/g' ${HOME}/.config/supervisord.conf ; break;;
         [Nn]* ) exit;;
         * ) echo "Please answer yes or no.";;
     esac
 done
-echo
 echo
 
 #Export X11 Settings
