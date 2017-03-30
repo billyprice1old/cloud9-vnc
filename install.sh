@@ -33,27 +33,23 @@ sudo cp uninstall.sh /opt/c9vnc/uninstall.sh
 
 #Export X11 Settings
 mkdir -p /tmp/X11
-export XDG_RUNTIME_DIR=/tmp/X11
-export DISPLAY=:99.0
-
-echo export XDG_RUNTIME_DIR=/tmp/X11 >> ~/.bashrc
+echo export XDG_RUNTIME_DIR=/tmp/C9VNC >> ~/.bashrc
 echo export DISPLAY=:99.0 >> ~/.bashrc
-
-#Export aliases
-echo alias c9vnc=/opt/c9vnc/c9vnc.sh >> ~/.bash_aliases
-echo alias c9vnc-uninstall=/opt/c9vnc/uninstall.sh >> ~/.bash_aliases
-
 source ~/.bashrc
-source ~/.bash_aliases
+
+#Symlink script
+ln -s /opt/c9vnc/c9vnc.sh /usr/local/bin/c9vnc
 
 #Set up password for x11vnc
 #Sets password from ~/.vnc/passwd
 #When running x11vnc, do x11vnc -usepw
+    # Hacky security flaw where I allow read access to ~/.vnc/passwd to group and other
+    # This is done so you don't have to run x11vnc as root (which causes all sorts of trouble)
 echo
 while true; do
     read -p "Do you wish to set password for x11vnc? (not recommended for public workspaces!) " yn
     case $yn in
-        [Yy]* ) sudo x11vnc -storepasswd ; sed -i -e 's/command=x11vnc/command=x11vnc -usepw/g' ${HOME}/.config/supervisord.conf ; break;;
+        [Yy]* ) sudo x11vnc -storepasswd ; sed -i -e 's/command=x11vnc/command=x11vnc -usepw/g' ${HOME}/.config/supervisord.conf ; sudo chmod go+r ~/.vnc/passwd ; break;;
         [Nn]* ) exit;;
         * ) echo "Please answer yes or no.";;
     esac

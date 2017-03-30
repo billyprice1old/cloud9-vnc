@@ -20,9 +20,8 @@ sudo rm -rf /opt/noVNC/
 sudo rm -rf /opt/c9vnc/
 
 #Remove X11 exports
-sed -i -e 's/export XDG_RUNTIME_DIR=/tmp/X11/g' ${HOME}/.bashrc
-sed -i -e 's/export DISPLAY=:99.0/g' ${HOME}/.bashrc
-
-#Remove aliases
-sed -i -e 's/alias c9vnc=/opt/c9vnc/c9vnc.sh/g' ${HOME}/.bash_aliases
-sed -i -e 's/alias c9vnc-uninstall=/opt/c9vnc/uninstall.sh/g' ${HOME}/.bash_aliases
+grep -v "export DISPLAY=:99.0" ~/.bashrc > /tmp/bashrc-temp
+mv /tmp/bashrc-temp ~/.bashrc
+grep -v "export XDG_RUNTIME_DIR=/tmp/C9VNC" ~/.bashrc > /tmp/bashrc-temp
+mv /tmp/bashrc-temp ~/.bashrc
+rm /tmp/bashrc-temp
