@@ -8,6 +8,10 @@ if [[ $UID != 0 ]]; then
 fi
 
 #Get prerequisites
+
+#force update
+
+sudo apt-get update 
 sudo apt-get install supervisor xvfb fluxbox x11vnc websockify
 
 #Clone noVNC into proper /opt/ directory
@@ -54,4 +58,3 @@ while true; do
         * ) echo "Please answer yes or no.";;
     esac
 done
-echo
