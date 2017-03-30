@@ -53,7 +53,7 @@ while getopts :hfk opt; do
     case $opt in 
         h) showHelp; exit ;;
         f) runningMessage; foregroundStart ;;
-        k) daemonStop; read -n 1 -s ; exit ;;
+        k) daemonStop ; exit ;;
        \?) echo "Unknown option -$OPTARG"; exit 1;;
     esac
 done
