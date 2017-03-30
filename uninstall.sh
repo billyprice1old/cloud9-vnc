@@ -18,3 +18,11 @@ sudo rm -rf /opt/noVNC/
 
 #Remove script directory
 sudo rm -rf /opt/c9vnc/
+
+#Remove X11 exports
+sed -i -e 's/export XDG_RUNTIME_DIR=/tmp/X11/g' ${HOME}/.bashrc
+sed -i -e 's/export DISPLAY=:99.0/g' ${HOME}/.bashrc
+
+#Remove aliases
+sed -i -e 's/alias c9vnc=/opt/c9vnc/c9vnc.sh/g' ${HOME}/.bash_aliases
+sed -i -e 's/alias c9vnc-uninstall=/opt/c9vnc/uninstall.sh/g' ${HOME}/.bash_aliases

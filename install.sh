@@ -31,6 +31,21 @@ sudo cp run.sh /opt/c9vnc/c9vnc.sh
 #Copy the run script to proper /opt/ directory
 sudo cp uninstall.sh /opt/c9vnc/uninstall.sh
 
+#Export X11 Settings
+mkdir -p /tmp/X11
+export XDG_RUNTIME_DIR=/tmp/X11
+export DISPLAY=:99.0
+
+echo export XDG_RUNTIME_DIR=/tmp/X11 >> ~/.bashrc
+echo export DISPLAY=:99.0 >> ~/.bashrc
+
+#Export aliases
+echo alias c9vnc=/opt/c9vnc/c9vnc.sh >> ~/.bash_aliases
+echo alias c9vnc-uninstall=/opt/c9vnc/uninstall.sh >> ~/.bash_aliases
+
+source ~/.bashrc
+source ~/.bash_aliases
+
 #Set up password for x11vnc
 #Sets password from ~/.vnc/passwd
 #When running x11vnc, do x11vnc -usepw
@@ -44,11 +59,3 @@ while true; do
     esac
 done
 echo
-
-#Export X11 Settings
-mkdir -p /tmp/X11
-export XDG_RUNTIME_DIR=/tmp/X11
-export DISPLAY=:99.0
-
-echo export XDG_RUNTIME_DIR=/tmp/X11 >> ~/.bashrc
-echo export DISPLAY=:99.0 >> ~/.bashrc
