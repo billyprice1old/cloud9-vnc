@@ -37,7 +37,6 @@ Uninstallation
 
 Run the uninstallation script with privileges
 
-    bash
         sudo /opt/c9vnc/uninstall.sh
     
 
