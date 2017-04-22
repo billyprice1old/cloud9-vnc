@@ -30,12 +30,14 @@ function foregroundStart {
 
 function daemonStart {
     echo -e "Starting c9vnc daemon"
-    
+    {
     #Run supervisord
     supervisord -c ${HOME}/.config/supervisord.conf
+    }&> /dev/null
 }
 
 function daemonStop {
+    {
     #Stop all C9vnc sub-processes
     supervisorctl stop novnc
     supervisorctl stop fluxbox
@@ -44,6 +46,7 @@ function daemonStop {
     
     #If that fails, killall
     killall Xvfb x11vnc websockify supervisord
+    }&> /dev/null
 }
 
 # No arguments, default to starting the daemon
