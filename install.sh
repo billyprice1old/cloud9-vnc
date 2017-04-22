@@ -3,10 +3,8 @@
 # Install prerequisites (supervisor xvfb fluxbox x11vnc websockify)
 # Redirect stdout to null
 install_prerequisites() {
-    {
-        sudo apt-get update
-        sudo apt-get install -y supervisor xvfb fluxbox x11vnc websockify
-    }&> /dev/null
+    sudo apt-get update
+    sudo apt-get install -y supervisor xvfb fluxbox x11vnc websockify
 }
 
 
