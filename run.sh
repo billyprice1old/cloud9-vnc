@@ -49,7 +49,7 @@ function daemonStop {
 # No arguments, default to starting the daemon
 if [ $# -eq 0 ]
   then
-    runningMessage; daemonStart ; read -n 1 -s ; exit ;
+    runningMessage; daemonStart ; sleep 5 ; exit ;
 fi
 
 while getopts :hfk opt; do
