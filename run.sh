@@ -16,6 +16,10 @@ function foregroundStart {
 
     #Run C9vnc in foreground
     
+    #Set environment variables
+    export XDG_RUNTIME_DIR=/tmp/C9VNC
+    export DISPLAY=:99.0
+    
     #Back up existing conf
     cp ${HOME}/.config/supervisord.conf ${HOME}/.config/supervisord.conf.bak
     #Modify supervisord.conf
@@ -31,6 +35,10 @@ function foregroundStart {
 function daemonStart {
     echo -e "Starting c9vnc daemon"
     {
+    #Set environment variables
+    export XDG_RUNTIME_DIR=/tmp/C9VNC
+    export DISPLAY=:99.0
+    
     #Run supervisord
     supervisord -c ${HOME}/.config/supervisord.conf
     }&> /dev/null
