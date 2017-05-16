@@ -6,7 +6,12 @@ if [[ $UID != 0 ]]; then
     echo "sudo $0 $*"
     exit 1
 fi
- 
+
+# Kill running sessions
+echo "Killing running sessions"
+echo
+/opt/c9vnc/c9vnc.sh -k
+
 #Remove supervisord configuration
 echo "Removing supervisord configuration"
 echo
