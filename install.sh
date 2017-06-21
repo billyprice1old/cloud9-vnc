@@ -43,7 +43,7 @@ echo
 echo "Configuring supervisord..."
 echo
 
-\cp supervisord.conf ${HOME}/.config/supervisord.conf
+cp supervisord.conf ${HOME}/.config/supervisord.conf
 
 #Make sure that the runners folder exists
 echo "Installing C9 runner..."
