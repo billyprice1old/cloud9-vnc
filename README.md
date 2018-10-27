@@ -58,3 +58,5 @@ Run the start script symlinked into your /usr/local/bin
        -k          Kill running daemon
     No arguments will try to start daemon process
     
+    
+    This Project Is no longer worked on
